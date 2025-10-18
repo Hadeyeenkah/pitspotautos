@@ -1,0 +1,21 @@
+{
+  "name": "pitspot-auto",
+  "version": "1.0.0",
+  "description": "PitSpot Auto backend and frontend runner",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "cd ../frontend && npx live-server --port=8000 --open=./index.html --entry-file=index.html",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,496 @@
+/* GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  background-color: #f5f5f5;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* --- UTILITY CLASSES --- */
+.inventory-main {
+    padding-top: 80px; /* Offset for fixed header */
+    min-height: 80vh; /* Ensure main content pushes the footer down */
+}
+
+/* HEADER */
+header {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  /* Removed gap/margins as logo-img handles it */
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s, transform 0.2s; /* Added transform for hover effect */
+  white-space: nowrap;
+  position: relative;
+}
+
+nav a:hover {
+  color: #e63946;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Hover underline effect */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e63946;
+    transition: width 0.3s ease-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px; /* Increased gap slightly */
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* HERO SECTION */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.4); /* Slightly darker for better text contrast */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2); /* Lighter overlay, relying more on video filter */
+  z-index: -1;
+}
+
+/* HERO CONTENT CONTAINER */
+.hero-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1;
+  gap: 3rem;
+  padding: 0 1rem;
+}
+
+/* LEFT TEXT */
+.hero-text {
+  flex: 1;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Slightly larger font */
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for contrast */
+}
+
+.hero-text p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-button {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 16px 36px; /* Slightly larger button */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 700; /* Bolder text */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #d62828;
+  transform: translateY(-2px); /* Lift instead of scale */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* DESKTOP CAROUSEL (Placeholder) */
+.desktop-carousel {
+  display: none; /* Removed as it's not in your HTML structure */
+}
+
+/* MOBILE CAROUSEL - Hidden by default */
+.mobile-carousel-container {
+  display: none;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+.mobile-carousel {
+  position: relative;
+  width: 100%;
+  height: 250px; /* Slightly taller for better view */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* ... (Rest of mobile carousel styles are fine) ... */
+
+/* FEATURES SECTION */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 4rem 3rem;
+  background-color: #fff;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #f8f8f8;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+  border: 1px solid #eee;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px); /* Reduced lift */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+
+.feature-icon {
+  font-size: 3rem; /* Slightly larger icon */
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: #e63946;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem; /* Slightly larger heading */
+}
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  padding: 3rem 2rem 1rem;
+  margin-top: 1rem;
+}
+
+.section-header h1, .section-header h2 {
+  font-size: clamp(2rem, 5vw, 3rem); /* Adjusted h1/h2 size */
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+/* --- INVENTORY FILTERS & INFO (New/Enhanced Styles) --- */
+
+#inventory-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    color: #555;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+.sort-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#sort-by {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+#filters-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Increased gap */
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 2rem 3rem; /* Increased padding */
+  border-radius: 0; /* Keep it sharp */
+  margin: 0 auto;
+  max-width: 1400px; /* Full width under max-width */
+  box-shadow: none; /* Remove shadow */
+  border-bottom: 1px solid #eee;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 160px; /* Slightly wider min-width */
+  flex: 1;
+  max-width: 250px;
+}
+
+.professional-select,
+#max-price-filter {
+  padding: 12px; /* Increased padding */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  background: white;
+  appearance: none; /* Hide default arrow */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%20170L150%20272c-5%203-11%203-16%200L5%20170c-3-2-5-7-5-13V65c0-6%202-10%205-13l137-102c5-3%2011-3%2016%200l137%20102c3%202%205%207%205%2013v92c0%206-2%2011-5%2013z%22%20transform%3D%22rotate(180%20146.2%20146.2)%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px auto;
+}
+
+#price-value {
+  font-weight: 700;
+  color: #e63946;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* --- CAR LISTINGS (Enhanced) --- */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Slightly wider card size */
+  gap: 24px; /* Increased gap */
+  padding: 3rem 3rem 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.car-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-media {
+  position: relative;
+  width: 100%;
+  height: 220px; /* Slightly taller image container */
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card details (existing styles are great) */
+.card-price {
+  font-size: 1.6rem; /* Slightly larger price */
+}
+
+/* --- PAGINATION (New Styles) --- */
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem 1rem;
+}
+
+#pagination-controls button {
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, opacity 0.3s;
+}
+
+#pagination-controls button:hover:not(:disabled) {
+    background: #d62828;
+}
+
+#pagination-controls button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#page-number {
+    font-weight: 600;
+    color: #333;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.1rem;
+  grid-column: 1 / -1;
+}
+
+/* FOOTER (Existing styles are fine) */
+/* ... */
+
+/* TABLET RESPONSIVE - 900px and below */
+@media (max-width: 900px) {
+  /* ... (Existing styles are fine) ... */
+
+  #inventory-info {
+    padding: 1rem 2rem;
+  }
+
+  .listing-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjusted grid for tablet */
+    padding: 2rem 2rem 4rem;
+  }
+}
+
+/* MOBILE RESPONSIVE - 600px and below */
+@media (max-width: 600px) {
+  /* ... (Existing styles are fine) ... */
+
+  #hero {
+    min-height: 600px;
+  }
+
+  /* Show mobile carousel */
+  .mobile-carousel-container {
+    display: block;
+  }
+
+  .features-section {
+    padding: 2rem 1rem;
+  }
+  
+  #inventory-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 1rem 1rem;
+  }
+
+  #filters-container {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+  
+  .filter-group {
+    max-width: 100%;
+  }
+
+  .listing-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .card-media {
+    height: 180px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .inquire-button {
+    width: 100%;
+  }
+}
+
+/* VERY SMALL MOBILE - 380px and below */
+@media (max-width: 380px) {
+  /* ... (Existing styles are fine) ... */
+  .mobile-carousel {
+    height: 160px;
+  }
+}

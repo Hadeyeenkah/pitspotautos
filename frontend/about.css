@@ -1,0 +1,516 @@
+/* -------------------------------------------
+   1. GLOBAL STYLES, VARIABLES & RESET
+   ------------------------------------------- */
+:root {
+    --color-primary: #182A4B; /* Dark Blue - Primary Brand Color */
+    --color-secondary: #E63946; /* Accent Red - Highlight Color */
+    --color-light: #f8f9fa;
+    --color-white: #ffffff;
+    --font-stack: 'Montserrat', sans-serif;
+    --shadow-default: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.7;
+    color: var(--color-primary);
+    background-color: var(--color-light);
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    padding-top: 80px; /* Space for fixed header */
+}
+
+section {
+    padding: 80px 5%; /* Increased vertical padding for more air */
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+h1, h2, h3 {
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--color-white); /* White in hero section */
+}
+
+h2 {
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+}
+
+/* Professional Heading Line Effect */
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-secondary);
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/* -------------------------------------------
+   2. HEADER & NAVIGATION (Updated to Dark/Blurred Style)
+   ------------------------------------------- */
+header {
+    background: rgba(0, 0, 0, 0.9); /* Dark, semi-transparent background */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for dark header */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 20px;
+}
+
+.logo-img {
+    width: 150px;
+    height: auto;
+    filter: brightness(0) invert(1); /* Invert logo color to white for dark background */
+    margin-left: -80px;
+}
+
+/* This class wasn't used in the HTML but is included for completeness */
+.site-logo {
+    background-color: #e63946;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 14px;
+    border-radius: 5px;
+}
+
+.logo h2 {
+    font-size: 1.5rem;
+    color: white; /* Ensure logo text is white */
+    margin: 0; /* Remove default h2 margin */
+}
+
+.logo span {
+    color: #e63946; /* Accent color remains */
+}
+
+#main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+#main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    white-space: nowrap;
+    padding-bottom: 5px; /* Added for hover effect consistency */
+}
+
+#main-nav a:hover,
+#main-nav a[href*="about.html"] {
+    color: #e63946;
+    border-bottom: 3px solid #e63946;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none; /* Hidden by default, shown in media query */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white; /* White bars for dark header */
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+
+/* -------------------------------------------
+   3. HERO SECTION
+   ------------------------------------------- */
+#about-hero {
+    background: linear-gradient(to bottom, rgba(24, 42, 75, 0.9), rgba(24, 42, 75, 0.8)), 
+                url('https://placehold.co/1200x450/182A4B/FFFFFF?text=Welcome+to+PitSpot+Auto') center center/cover;
+    color: var(--color-white);
+    padding: 120px 5%;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#about-hero h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* -------------------------------------------
+   4. STORY & MISSION SECTIONS (Clean Card Styling)
+   ------------------------------------------- */
+.content-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-default);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.content-section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.section-text {
+    flex: 1.2;
+}
+
+.section-image {
+    flex: 0.8;
+    min-width: 300px;
+}
+
+.section-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Reverse layout for alternating sections */
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* MISSION & VALUES Specific Styling */
+#mission-values ul {
+    list-style: none;
+    margin-top: 25px;
+    padding-left: 0;
+}
+
+#mission-values li {
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--color-secondary);
+    border-radius: 6px;
+    background-color: var(--color-light);
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#mission-values li:hover {
+    background-color: #f0f0f0;
+}
+
+.mission-statement {
+    font-style: italic;
+    padding: 20px;
+    background-color: #f0f4f7;
+    border-radius: 8px;
+    border: 1px dashed var(--color-secondary);
+    font-weight: 500;
+    color: #333;
+}
+
+/* -------------------------------------------
+   5. TEAM SECTION
+   ------------------------------------------- */
+#our-team {
+    text-align: center;
+    background-color: var(--color-light);
+    padding: 80px 5%;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.team-member {
+    text-align: center;
+    width: 280px;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-default);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.team-member img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--color-secondary);
+    padding: 3px;
+}
+
+.team-member h3 {
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+}
+
+.team-member .role {
+    color: #6c757d;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* -------------------------------------------
+   6. BUTTONS & CTAs
+   ------------------------------------------- */
+.cta-button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 30px; /* Pill Shape */
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #c9333d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(230, 57, 70, 0.6);
+}
+
+.secondary-cta {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(24, 42, 75, 0.4);
+}
+
+.secondary-cta:hover {
+    background-color: #0f1c36;
+    box-shadow: 0 8px 15px rgba(24, 42, 75, 0.6);
+}
+
+/* -------------------------------------------
+   7. FOOTER
+   ------------------------------------------- */
+footer {
+    background-color: var(--color-primary);
+    color: #c7c7c7;
+    padding: 50px 5%;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    color: var(--color-secondary);
+    border-bottom: none;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.footer-section p, .footer-section a {
+    color: #c7c7c7;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.footer-section a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.9rem;
+}
+
+/* -------------------------------------------
+   8. ANIMATION CLASSES
+   ------------------------------------------- */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+    transform: translateY(30px); /* Slightly increased slide for visual impact */
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* -------------------------------------------
+   9. MEDIA QUERIES (Responsiveness)
+   ------------------------------------------- */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+    .content-section {
+        gap: 30px;
+        flex-direction: column;
+    }
+    .reverse {
+        flex-direction: column; /* Revert reverse for mobile stack */
+    }
+    .section-text, .section-image {
+        flex: none;
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        /* Mobile header specific adjustments */
+        padding: 1rem 5%;
+        backdrop-filter: blur(5px); /* Slightly less blur on mobile */
+    }
+
+    .logo-img {
+        width: 120px; /* Adjust logo size for mobile */
+        margin-left: -50px; /* Adjust offset */
+    }
+    
+    /* Show mobile menu toggle */
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+    
+    /* Hide desktop nav and make it fullscreen overlay */
+    #main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 75%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95); /* Dark background for mobile menu */
+        flex-direction: column;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 999;
+        display: flex;
+    }
+    
+    #main-nav.active {
+        transform: translateX(0);
+    }
+    
+    #main-nav a {
+        color: white;
+        margin: 20px 0;
+        font-size: 1.5rem;
+        text-align: center;
+        border-bottom: none !important;
+    }
+    
+    #main-nav a:hover {
+        color: var(--color-secondary);
+    }
+
+    /* Adjust content for smaller screens */
+    #about-hero {
+        padding: 100px 5%;
+        border-radius: 0 0 20px 20px;
+    }
+
+    #about-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .team-grid {
+        gap: 20px;
+    }
+
+    .team-member {
+        width: 100%;
+        max-width: 300px;
+    }
+}

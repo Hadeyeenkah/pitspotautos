@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Inventory - PitSpot Auto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="inventory-style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="PitSpot Auto Logo" class="logo-img">
+      </a>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="inventory.html" class="nav-link active">Inventory</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="#" class="nav-link admin-nav-link" id="admin-toggle">
+        <span class="admin-icon">🔐</span> Admin
+      </a>
+    </nav>
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> > Inventory
+    </div>
+    <h1 class="page-title">Browse Our Premium Collection</h1>
+    <p class="page-subtitle"><span id="total-count">6</span> vehicles available</p>
+    <div class="stats-bar">
+      <div class="stat-item" onclick="filterByType('suv')">
+        <span class="stat-number">3</span>
+        <span class="stat-label">SUVs</span>
+      </div>
+      <div class="stat-item" onclick="filterByType('sedan')">
+        <span class="stat-number">2</span>
+        <span class="stat-label">Sedans</span>
+      </div>
+      <div class="stat-item" onclick="filterByType('truck')">
+        <span class="stat-number">1</span>
+        <span class="stat-label">Trucks</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTION BAR -->
+  <div class="action-bar">
+    <div class="view-controls">
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <rect x="2" y="2" width="7" height="7" rx="1"/>
+            <rect x="11" y="2" width="7" height="7" rx="1"/>
+            <rect x="2" y="11" width="7" height="7" rx="1"/>
+            <rect x="11" y="11" width="7" height="7" rx="1"/>
+          </svg>
+        </button>
+        <button class="view-btn" data-view="list">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <rect x="2" y="3" width="16" height="3" rx="1"/>
+            <rect x="2" y="8.5" width="16" height="3" rx="1"/>
+            <rect x="2" y="14" width="16" height="3" rx="1"/>
+          </svg>
+        </button>
+      </div>
+      <span class="results-count">Showing <span id="showing-count">6</span> of <span id="results-count">6</span> vehicles</span>
+    </div>
+
+    <div class="quick-filters">
+      <button class="filter-pill active" data-filter="all">All Vehicles</button>
+      <button class="filter-pill" data-filter="new">New Arrivals</button>
+      <button class="filter-pill" data-filter="certified">Certified</button>
+      <button class="filter-pill" data-filter="under30k">Under ₦30M</button>
+      <button class="filter-pill" data-filter="low-miles">Low Mileage</button>
+    </div>
+
+    <select class="sort-dropdown" id="sort-select">
+      <option value="relevant">Sort by: Most Relevant</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+      <option value="year-new">Year: Newest First</option>
+      <option value="mileage-low">Mileage: Low to High</option>
+    </select>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="main-container">
+    <!-- FILTER SIDEBAR -->
+    <aside class="filter-sidebar" id="filter-sidebar">
+      <div class="sidebar-header">
+        <h2>Filters</h2>
+        <button class="close-sidebar" id="close-sidebar">✕</button>
+      </div>
+
+      <div class="filter-section">
+        <h3 class="filter-title">Search</h3>
+        <input type="text" class="filter-search" placeholder="Search by make, model..." id="search-input">
+      </div>
+
+      <div class="filter-section">
+        <h3 class="filter-title">Price Range</h3>
+        <input type="range" class="range-slider" min="5000000" max="100000000" value="100000000" step="1000000" id="price-slider">
+        <div class="price-range">
+          <input type="text" class="price-input" placeholder="Min" value="₦5,000,000" readonly>
+          <input type="text" class="price-input" placeholder="Max" value="₦100,000,000" id="max-price-display" readonly>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h3 class="filter-title">Make</h3>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="make" value="toyota">
+            <span class="checkbox-label">Toyota <span class="count-badge">(2)</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="make" value="honda">
+            <span class="checkbox-label">Honda <span class="count-badge">(1)</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="make" value="ford">
+            <span class="checkbox-label">Ford <span class="count-badge">(1)</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="make" value="tesla">
+            <span class="checkbox-label">Tesla <span class="count-badge">(1)</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="make" value="bmw">
+            <span class="checkbox-label">BMW <span class="count-badge">(1)</span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h3 class="filter-title">Body Type</h3>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="body" value="suv">
+            <span class="checkbox-label">SUV <span class="count-badge">(3)</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="body" value="sedan">
+            <span class="checkbox-label">Sedan <span class="count-badge">(2)</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="body" value="truck">
+            <span class="checkbox-label">Truck <span class="count-badge">(1)</span></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h3 class="filter-title">Transmission</h3>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="transmission" value="automatic">
+            <span class="checkbox-label">Automatic</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="transmission" value="manual">
+            <span class="checkbox-label">Manual</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h3 class="filter-title">Fuel Type</h3>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" name="fuel" value="gasoline">
+            <span class="checkbox-label">Gasoline</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="fuel" value="hybrid">
+            <span class="checkbox-label">Hybrid</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="fuel" value="electric">
+            <span class="checkbox-label">Electric</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-actions">
+        <button class="btn-apply" onclick="applyFilters()">Apply Filters</button>
+        <a href="#" class="btn-clear" onclick="clearFilters(); return false;">Clear All Filters</a>
+      </div>
+    </aside>
+
+    <!-- VEHICLE GRID -->
+    <main class="main-content">
+      <div class="vehicle-grid" id="vehicle-grid">
+        <!-- Vehicle cards will be generated by JavaScript -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <button class="page-btn" id="prev-btn">← Previous</button>
+        <div class="page-numbers" id="page-numbers"></div>
+        <button class="page-btn" id="next-btn">Next →</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- VEHICLE DETAILS MODAL -->
+  <div class="vehicle-modal" id="vehicle-modal">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Content will be injected by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN EDIT MODAL -->
+  <div class="vehicle-modal" id="edit-modal">
+    <div class="modal-overlay" onclick="closeEditModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeEditModal()">✕</button>
+      <div class="modal-body" id="edit-body">
+        <!-- Edit form will be injected by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Filter Button -->
+  <button class="mobile-filter-btn" id="mobile-filter-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="4" y1="6" x2="20" y2="6"/>
+      <line x1="4" y1="12" x2="20" y2="12"/>
+      <line x1="4" y1="18" x2="20" y2="18"/>
+      <circle cx="8" cy="6" r="2" fill="currentColor"/>
+      <circle cx="16" cy="12" r="2" fill="currentColor"/>
+      <circle cx="12" cy="18" r="2" fill="currentColor"/>
+    </svg>
+    <span class="filter-count" id="filter-count">0</span>
+  </button>
+
+  <!-- Admin Toggle Button -->
+  
+
+  <!-- Overlay for mobile -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- JavaScript -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY_HERE",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_MESSAGING_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+    const auth = firebase.auth();
+
+    console.log('✅ Firebase initialized successfully!');
+  </script>
+
+  <script src="inventory-script.js"></script>
+</body>
+</html>
