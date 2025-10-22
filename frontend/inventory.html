@@ -198,7 +198,7 @@
         <a href="#" class="btn-clear" onclick="clearFilters(); return false;">Clear All Filters</a>
       </div>
     </aside>
-
+ 
     <!-- VEHICLE GRID -->
     <main class="main-content">
       <div class="vehicle-grid" id="vehicle-grid">
@@ -263,12 +263,14 @@
 
   <script>
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY_HERE",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "YOUR_MESSAGING_ID",
-      appId: "YOUR_APP_ID"
+       apiKey: "AIzaSyDmYv6Iz9yUg0vNMbnlIhsM5TuE7i85IT4",
+  authDomain: "pitspot-autos.firebaseapp.com",
+  databaseURL: "https://pitspot-autos-default-rtdb.firebaseio.com",
+  projectId: "pitspot-autos",
+  storageBucket: "pitspot-autos.firebasestorage.app",
+  messagingSenderId: "762200572603",
+  appId: "1:762200572603:web:1cae2f93a481fe591edf9e",
+  measurementId: "G-6DZGZ187KF"
     };
 
     firebase.initializeApp(firebaseConfig);
@@ -280,5 +282,6 @@
   </script>
 
   <script src="inventory-script.js"></script>
+  <script src="upload.js"></script>
 </body>
 </html>

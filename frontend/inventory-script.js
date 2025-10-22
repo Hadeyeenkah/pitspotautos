@@ -4,124 +4,103 @@
 let vehicles = [
   {
     id: 1,
-    make: 'Tesla',
-    model: 'Model 3',
-    year: 2024,
-    price: 42990000,
+    make: 'Toyota',
+    model: 'Camry Se',
+    year: 2013,
+    price: 12000000,
     mileage: 550,
-    color: 'Midnight Black',
+    color: 'White',
     transmission: 'Automatic',
-    fuel: 'Electric',
+    fuel: 'Fuel',
     bodyType: 'sedan',
     images: [
-      'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800',
-      'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800',
-      'https://images.unsplash.com/photo-1536700503339-1e4b06520771?w=800',
-      'https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?w=800',
-      'https://images.unsplash.com/photo-1583267746897-c641189fb394?w=800',
-      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=800',
-      'https://images.unsplash.com/photo-1619682817481-e994891cd1f5?w=800'
+      "https://i.ibb.co/39zz7kfS/Whats-App-Image-2025-10-18-at-7-34-50-PM.jpg",
+      "https://i.ibb.co/9RhF2vV/Whats-App-Image-2025-10-18-at-7-34-50-PM-4.jpg",
+      "https://i.ibb.co/JwGZxmTD/Whats-App-Image-2025-10-18-at-7-34-50-PM-5.jpg",
+      "https://i.ibb.co/jkqvMWXq/Whats-App-Image-2025-10-18-at-7-34-50-PM-3.jpg",
+      "https://i.ibb.co/WNLP629g/Whats-App-Image-2025-10-18-at-7-34-50-PM-2.jpg",
+      "https://i.ibb.co/nMCSyp5C/Whats-App-Image-2025-10-18-at-7-34-50-PM-1.jpg",
     ],
     badges: ['featured', 'new'],
-    description: 'Brand new Tesla Model 3 with cutting-edge autopilot technology, premium interior, and exceptional range. Features include advanced safety systems, panoramic glass roof, and zero emissions driving.',
-    features: ['Autopilot', 'Premium Audio', 'Glass Roof', 'Heated Seats', 'Supercharger Access', 'Mobile App Control'],
+    description: '2013 Toyota Camry Se (White)',
+    features: ['Premium Audio', 'Glass Roof', 'Heated Seats', 'Supercharger Access', 'Mobile App Control'],
     engine: 'Dual Motor AWD',
-    horsepower: '480 hp',
     acceleration: '3.1s 0-60mph',
-    topSpeed: '162 mph',
-    range: '358 miles',
     warranty: '4 years/50,000 miles'
   },
   {
     id: 2,
-    make: 'Toyota',
-    model: 'RAV4 Hybrid',
-    year: 2023,
-    price: 32500000,
-    mileage: 12000,
-    color: 'Silver Sky Metallic',
+    make: 'Mercedes',
+    model: 'Benz GLE',
+    year: 2021,
+    price: 100000000,
+    mileage: 550,
+    color: 'White',
     transmission: 'Automatic',
-    fuel: 'Hybrid',
-    bodyType: 'suv',
+    fuel: 'Fuel',
+    bodyType: 'sedan',
     images: [
-      'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800',
-      'https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800',
-      'https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=800',
-      'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800',
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
-      'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=800',
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800'
+      "https://i.ibb.co/Qjn1FM4G/Whats-App-Image-2025-10-18-at-7-23-39-PM-4.jpg",
+      "https://i.ibb.co/v4jc9vxB/Whats-App-Image-2025-10-18-at-7-23-39-PM-1.jpg",
+      "https://i.ibb.co/nqfBKk0F/Whats-App-Image-2025-10-18-at-7-23-39-PM-3.jpg",
+      "https://i.ibb.co/xtMSDD7g/Whats-App-Image-2025-10-18-at-7-23-39-PM.jpg",
     ],
-    badges: ['certified'],
-    description: 'Certified pre-owned Toyota RAV4 Hybrid with exceptional fuel economy, spacious interior, and advanced safety features. Perfect for families seeking reliability and efficiency.',
-    features: ['Lane Departure Alert', 'Adaptive Cruise Control', 'Backup Camera', 'Blind Spot Monitor', 'Apple CarPlay', 'Android Auto'],
-    engine: '2.5L 4-Cylinder Hybrid',
-    horsepower: '219 hp',
-    acceleration: '7.8s 0-60mph',
-    topSpeed: '112 mph',
-    mpg: '41 city / 38 hwy',
-    warranty: 'Toyota Certified 7yr/100k miles'
+    badges: ['featured', 'new'],
+    description: '2021 Mercedes GLE (White)',
+    features: ['Premium Audio', 'Glass Roof', 'Heated Seats', 'Supercharger Access', 'Mobile App Control'],
+    engine: 'Dual Motor AWD',
+    acceleration: '3.1s 0-60mph',
+    warranty: '4 years/50,000 miles'
   },
   {
     id: 3,
-    make: 'Ford',
-    model: 'F-150 Lightning',
-    year: 2023,
-    price: 48200000,
-    mileage: 8500,
-    color: 'Oxford White',
+    make: 'Toyota',
+    model: 'Camry Se',
+    year: 2013,
+    price: 12000000,
+    mileage: 550,
+    color: 'Black',
     transmission: 'Automatic',
-    fuel: 'Electric',
-    bodyType: 'truck',
+    fuel: 'Fuel',
+    bodyType: 'sedan',
     images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
-      'https://images.unsplash.com/photo-1632218983641-adb9af404568?w=800',
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-      'https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800',
-      'https://images.unsplash.com/photo-1610647752706-3bb12232b37a?w=800',
-      'https://images.unsplash.com/photo-1623088951853-1187f32d3b7b?w=800'
+      "https://i.ibb.co/9HrCmgMQ/Whats-App-Image-2025-10-18-at-7-25-01-PM.jpg",
+      "https://i.ibb.co/N6P2xncZ/Whats-App-Image-2025-10-18-at-7-25-01-PM-5.jpg",
+      "https://i.ibb.co/V0gcMq63/Whats-App-Image-2025-10-18-at-7-34-18-PM-3.jpg",
+      "https://i.ibb.co/5XvFDNYk/Whats-App-Image-2025-10-18-at-7-34-18-PM-2.jpg",
+      "https://i.ibb.co/KgqWtrb/Whats-App-Image-2025-10-18-at-7-25-01-PM-2.jpg",
+      "https://i.ibb.co/pvkmQ5NW/Whats-App-Image-2025-10-18-at-7-25-01-PM-1.jpg",
     ],
-    badges: ['certified', 'featured'],
-    description: 'Revolutionary Ford F-150 Lightning electric truck with incredible power, massive cargo space, and innovative features. Built Ford tough with zero emissions.',
-    features: ['Pro Power Onboard', '360° Camera', 'Trailer Backup Assist', 'Wireless Charging', 'SYNC 4A', 'BlueCruise Hands-Free'],
-    engine: 'Dual Electric Motors',
-    horsepower: '580 hp',
-    acceleration: '4.5s 0-60mph',
-    towingCapacity: '10,000 lbs',
-    range: '320 miles',
-    warranty: '3 years/36,000 miles'
+    badges: ['featured', 'new'],
+    description: '2013 Toyota Camry Se (Black)',
+    features: ['Premium Audio', 'Glass Roof', 'Heated Seats', 'Supercharger Access', 'Mobile App Control'],
+    engine: 'Dual Motor AWD',
+    acceleration: '3.1s 0-60mph',
+    warranty: '2 years'
   },
-
   {
     id: 4,
-    make: 'BMW',
-    model: 'X5 M50i',
-    year: 2024,
-    price: 67000000,
-    mileage: 2100,
-    color: 'Alpine White',
+    make: 'Toyota',
+    model: 'Camry Se',
+    year: 2013,
+    price: 12000000,
+    mileage: 550,
+    color: 'Silver',
     transmission: 'Automatic',
-    fuel: 'Gasoline',
-    bodyType: 'suv',
+    fuel: 'Fuel',
+    bodyType: 'sedan',
     images: [
-      'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
-      'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=800',
-      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
-      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800',
-      'https://images.unsplash.com/photo-1609540072593-670e16ef4fe7?w=800',
-      'https://images.unsplash.com/photo-1600712242805-5f78671b24da?w=800',
-      'https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800'
+      "https://i.ibb.co/V0gcMq63/Whats-App-Image-2025-10-18-at-7-34-18-PM-3.jpg",
+      "https://i.ibb.co/gbXS6kFj/Whats-App-Image-2025-10-18-at-7-34-18-PM-1.jpg",
+      "https://i.ibb.co/FkG6ZWC7/Whats-App-Image-2025-10-18-at-7-34-18-PM.jpg",
+      "https://i.ibb.co/tppr1Pyc/Whats-App-Image-2025-10-18-at-7-34-17-PM-1.jpg",
     ],
-    badges: ['new', 'featured'],
-    description: 'Luxurious BMW X5 M50i featuring premium materials, cutting-edge technology, and exhilarating performance. The perfect blend of luxury and sportiness.',
-    features: ['Harman Kardon Audio', 'Panoramic Sunroof', 'Gesture Control', 'Wireless Charging', 'Head-Up Display', 'Massaging Seats'],
-    engine: '4.4L Twin-Turbo V8',
-    horsepower: '523 hp',
-    acceleration: '4.3s 0-60mph',
-    topSpeed: '155 mph',
-    mpg: '16 city / 22 hwy',
-    warranty: '4 years/50,000 miles'
+    badges: ['featured', 'new'],
+    description: '2013 Toyota Camry Se (Silver)',
+    features: ['Premium Audio', 'Glass Roof', 'Heated Seats', 'Supercharger Access', 'Mobile App Control'],
+    engine: 'Dual Motor AWD',
+    acceleration: '3.1s 0-60mph',
+    warranty: '2 years'
   },
   {
     id: 5,
@@ -154,157 +133,37 @@ let vehicles = [
     warranty: '3 years/36,000 miles'
   },
   {
-    id: 3,
-    make: 'Ford',
-    model: 'F-150 Lightning',
-    year: 2023,
-    price: 48200000,
-    mileage: 8500,
-    color: 'Oxford White',
-    transmission: 'Automatic',
-    fuel: 'Electric',
-    bodyType: 'truck',
-    images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
-      'https://images.unsplash.com/photo-1632218983641-adb9af404568?w=800',
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-      'https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800',
-      'https://images.unsplash.com/photo-1610647752706-3bb12232b37a?w=800',
-      'https://images.unsplash.com/photo-1623088951853-1187f32d3b7b?w=800'
-    ],
-    badges: ['certified', 'featured'],
-    description: 'Revolutionary Ford F-150 Lightning electric truck with incredible power, massive cargo space, and innovative features. Built Ford tough with zero emissions.',
-    features: ['Pro Power Onboard', '360° Camera', 'Trailer Backup Assist', 'Wireless Charging', 'SYNC 4A', 'BlueCruise Hands-Free'],
-    engine: 'Dual Electric Motors',
-    horsepower: '580 hp',
-    acceleration: '4.5s 0-60mph',
-    towingCapacity: '10,000 lbs',
-    range: '320 miles',
-    warranty: '3 years/36,000 miles'
-  },
-  {
-    id: 3,
-    make: 'Ford',
-    model: 'F-150 Lightning',
-    year: 2023,
-    price: 48200000,
-    mileage: 8500,
-    color: 'Oxford White',
-    transmission: 'Automatic',
-    fuel: 'Electric',
-    bodyType: 'truck',
-    images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
-      'https://images.unsplash.com/photo-1632218983641-adb9af404568?w=800',
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-      'https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800',
-      'https://images.unsplash.com/photo-1610647752706-3bb12232b37a?w=800',
-      'https://images.unsplash.com/photo-1623088951853-1187f32d3b7b?w=800'
-    ],
-    badges: ['certified', 'featured'],
-    description: 'Revolutionary Ford F-150 Lightning electric truck with incredible power, massive cargo space, and innovative features. Built Ford tough with zero emissions.',
-    features: ['Pro Power Onboard', '360° Camera', 'Trailer Backup Assist', 'Wireless Charging', 'SYNC 4A', 'BlueCruise Hands-Free'],
-    engine: 'Dual Electric Motors',
-    horsepower: '580 hp',
-    acceleration: '4.5s 0-60mph',
-    towingCapacity: '10,000 lbs',
-    range: '320 miles',
-    warranty: '3 years/36,000 miles'
-  },
-  {
-    id: 3,
-    make: 'Ford',
-    model: 'F-150 Lightning',
-    year: 2023,
-    price: 48200000,
-    mileage: 8500,
-    color: 'Oxford White',
-    transmission: 'Automatic',
-    fuel: 'Electric',
-    bodyType: 'truck',
-    images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
-      'https://images.unsplash.com/photo-1632218983641-adb9af404568?w=800',
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-      'https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800',
-      'https://images.unsplash.com/photo-1610647752706-3bb12232b37a?w=800',
-      'https://images.unsplash.com/photo-1623088951853-1187f32d3b7b?w=800'
-    ],
-    badges: ['certified', 'featured'],
-    description: 'Revolutionary Ford F-150 Lightning electric truck with incredible power, massive cargo space, and innovative features. Built Ford tough with zero emissions.',
-    features: ['Pro Power Onboard', '360° Camera', 'Trailer Backup Assist', 'Wireless Charging', 'SYNC 4A', 'BlueCruise Hands-Free'],
-    engine: 'Dual Electric Motors',
-    horsepower: '580 hp',
-    acceleration: '4.5s 0-60mph',
-    towingCapacity: '10,000 lbs',
-    range: '320 miles',
-    warranty: '3 years/36,000 miles'
-  },
-  {
-    id: 3,
-    make: 'Ford',
-    model: 'F-150 Lightning',
-    year: 2023,
-    price: 48200000,
-    mileage: 8500,
-    color: 'Oxford White',
-    transmission: 'Automatic',
-    fuel: 'Electric',
-    bodyType: 'truck',
-    images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
-      'https://images.unsplash.com/photo-1632218983641-adb9af404568?w=800',
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-      'https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800',
-      'https://images.unsplash.com/photo-1610647752706-3bb12232b37a?w=800',
-      'https://images.unsplash.com/photo-1623088951853-1187f32d3b7b?w=800'
-    ],
-    badges: ['certified', 'featured'],
-    description: 'Revolutionary Ford F-150 Lightning electric truck with incredible power, massive cargo space, and innovative features. Built Ford tough with zero emissions.',
-    features: ['Pro Power Onboard', '360° Camera', 'Trailer Backup Assist', 'Wireless Charging', 'SYNC 4A', 'BlueCruise Hands-Free'],
-    engine: 'Dual Electric Motors',
-    horsepower: '580 hp',
-    acceleration: '4.5s 0-60mph',
-    towingCapacity: '10,000 lbs',
-    range: '320 miles',
-    warranty: '3 years/36,000 miles'
-  },
-  {
-    id: 3,
-    make: 'Ford',
-    model: 'F-150 Lightning',
-    year: 2023,
-    price: 48200000,
-    mileage: 8500,
-    color: 'Oxford White',
-    transmission: 'Automatic',
-    fuel: 'Electric',
-    bodyType: 'truck',
-    images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
-      'https://images.unsplash.com/photo-1632218983641-adb9af404568?w=800',
-      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
-      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-      'https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800',
-      'https://images.unsplash.com/photo-1610647752706-3bb12232b37a?w=800',
-      'https://images.unsplash.com/photo-1623088951853-1187f32d3b7b?w=800'
-    ],
-    badges: ['certified', 'featured'],
-    description: 'Revolutionary Ford F-150 Lightning electric truck with incredible power, massive cargo space, and innovative features. Built Ford tough with zero emissions.',
-    features: ['Pro Power Onboard', '360° Camera', 'Trailer Backup Assist', 'Wireless Charging', 'SYNC 4A', 'BlueCruise Hands-Free'],
-    engine: 'Dual Electric Motors',
-    horsepower: '580 hp',
-    acceleration: '4.5s 0-60mph',
-    towingCapacity: '10,000 lbs',
-    range: '320 miles',
-    warranty: '3 years/36,000 miles'
-  },
-  {
     id: 6,
+    make: 'Ford',
+    model: 'F-150 Lightning',
+    year: 2023,
+    price: 48200000,
+    mileage: 8500,
+    color: 'Oxford White',
+    transmission: 'Automatic',
+    fuel: 'Electric',
+    bodyType: 'truck',
+    images: [
+      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800',
+      'https://images.unsplash.com/photo-1632218983641-adb9af404568?w=800',
+      'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
+      'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
+      'https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800',
+      'https://images.unsplash.com/photo-1610647752706-3bb12232b37a?w=800',
+      'https://images.unsplash.com/photo-1623088951853-1187f32d3b7b?w=800'
+    ],
+    badges: ['certified', 'featured'],
+    description: 'Revolutionary Ford F-150 Lightning electric truck with incredible power, massive cargo space, and innovative features. Built Ford tough with zero emissions.',
+    features: ['Pro Power Onboard', '360° Camera', 'Trailer Backup Assist', 'Wireless Charging', 'SYNC 4A', 'BlueCruise Hands-Free'],
+    engine: 'Dual Electric Motors',
+    horsepower: '580 hp',
+    acceleration: '4.5s 0-60mph',
+    towingCapacity: '10,000 lbs',
+    range: '320 miles',
+    warranty: '3 years/36,000 miles'
+  },
+  {
+    id: 7,
     make: 'Lexus',
     model: 'RX 350',
     year: 2023,
@@ -780,17 +639,15 @@ function toggleSave(event, id) {
 // ========================================
 // ADMIN CONFIGURATION
 // ========================================
-const ADMIN_PASSWORD = 'admin123'; // Change this to your secure password
+const ADMIN_PASSWORD = 'Aa123123Aa'; // Change this to your secure password
 
 // ========================================
 // ADMIN FUNCTIONS
 // ========================================
 function toggleAdminMode() {
   if (!state.isAdmin) {
-    // Trying to enter admin mode - require password
     showPasswordModal();
   } else {
-    // Exiting admin mode
     state.isAdmin = false;
     const btn = document.getElementById('admin-toggle');
     btn.innerHTML = '<span class="admin-icon">🔐</span> Admin';
@@ -834,13 +691,6 @@ function showPasswordModal() {
             Cancel
           </button>
         </div>
-        
-        <div style="margin-top: 2rem; padding: 1rem; background: #fff3cd; border-radius: 8px; border: 1px solid #ffc107;">
-          <p style="margin: 0; font-size: 0.9rem; color: #856404;">
-            <strong>⚠️ Default Password:</strong> admin123<br>
-            <small>Change ADMIN_PASSWORD in the JavaScript code for security</small>
-          </p>
-        </div>
       </form>
     </div>
   `;
@@ -854,7 +704,6 @@ function showPasswordModal() {
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
   
-  // Focus on password input
   setTimeout(() => {
     document.getElementById('admin-password-input').focus();
   }, 100);
@@ -866,7 +715,6 @@ function verifyAdminPassword() {
   const enteredPassword = passwordInput.value;
 
   if (enteredPassword === ADMIN_PASSWORD) {
-    // Password correct - activate admin mode
     state.isAdmin = true;
     const btn = document.getElementById('admin-toggle');
     btn.textContent = '👤 Exit Admin';
@@ -877,13 +725,11 @@ function verifyAdminPassword() {
     
     alert('✅ Admin Mode Activated!\n\nYou can now:\n• Edit vehicle details\n• Upload new images\n• Delete vehicles');
   } else {
-    // Password incorrect - show error
     errorDiv.textContent = '❌ Incorrect password. Please try again.';
     errorDiv.style.display = 'block';
     passwordInput.value = '';
     passwordInput.focus();
     
-    // Shake animation
     passwordInput.style.animation = 'shake 0.5s';
     setTimeout(() => {
       passwordInput.style.animation = '';
@@ -1135,12 +981,9 @@ function uploadToImgur(vehicleId) {
   uploadBtn.disabled = true;
   uploadBtn.textContent = 'Uploading...';
 
-  // Option 1: Use ImgBB API (Get free API key from https://api.imgbb.com/)
-  const IMGBB_API_KEY = 'YOUR_IMGBB_API_KEY'; // Replace with your ImgBB API key
+  const IMGBB_API_KEY = '2029f5b57fefec48cf03bd6f58c2de8b';
   
-  // Option 2: Convert to Base64 and store locally (for demo purposes)
-  if (!IMGBB_API_KEY || IMGBB_API_KEY === 'YOUR_IMGBB_API_KEY') {
-    // Use local base64 encoding (no upload needed)
+  if (!IMGBB_API_KEY || IMGBB_API_KEY === '2029f5b57fefec48cf03bd6f58c2de8b') {
     const reader = new FileReader();
     reader.onload = function(e) {
       vehicles[vehicleIndex].images.push(e.target.result);
@@ -1165,7 +1008,6 @@ function uploadToImgur(vehicleId) {
     return;
   }
 
-  // If you have ImgBB API key, use this:
   fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
     method: 'POST',
     body: formData
@@ -1235,16 +1077,13 @@ function closeMobileFilters() {
 function init() {
   renderVehicles();
 
-  // Price slider
   const priceSlider = document.getElementById('price-slider');
   priceSlider.addEventListener('input', (e) => {
     document.getElementById('max-price-display').value = formatPrice(parseInt(e.target.value));
   });
 
-  // Search
   document.getElementById('search-input').addEventListener('input', debounce(applyFilters, 500));
 
-  // Quick filters
   document.querySelectorAll('.filter-pill').forEach(pill => {
     pill.addEventListener('click', () => {
       document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
@@ -1255,14 +1094,12 @@ function init() {
     });
   });
 
-  // Sort
   document.getElementById('sort-select').addEventListener('change', (e) => {
     state.sortBy = e.target.value;
     state.currentPage = 1;
     renderVehicles();
   });
 
-  // View toggle
   document.querySelectorAll('.view-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
@@ -1276,7 +1113,6 @@ function init() {
     });
   });
 
-  // Pagination
   document.getElementById('prev-btn').addEventListener('click', () => {
     if (state.currentPage > 1) goToPage(state.currentPage - 1);
   });
@@ -1287,12 +1123,10 @@ function init() {
     if (state.currentPage < totalPages) goToPage(state.currentPage + 1);
   });
 
-  // Mobile
   document.getElementById('mobile-filter-btn').addEventListener('click', toggleMobileFilters);
   document.getElementById('close-sidebar').addEventListener('click', closeMobileFilters);
   document.getElementById('overlay').addEventListener('click', closeMobileFilters);
 
-  // Mobile menu
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   
@@ -1303,10 +1137,8 @@ function init() {
     });
   }
 
-  // Admin toggle
   document.getElementById('admin-toggle').addEventListener('click', toggleAdminMode);
 
-  // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeModal();
@@ -1320,5 +1152,4 @@ function init() {
   console.log(`🖼️  Total images: ${vehicles.reduce((sum, v) => sum + v.images.length, 0)}`);
 }
 
-// Start the app when DOM is ready
 document.addEventListener('DOMContentLoaded', init);

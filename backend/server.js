@@ -44,9 +44,11 @@ app.post("/api/cars", (req, res) => {
 });
 
 // === Catch-all: send frontend ===
-app.get("*", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
+
+
 
 // === Start Server ===
 app.listen(PORT, () => {
