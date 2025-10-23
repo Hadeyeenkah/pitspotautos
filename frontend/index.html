@@ -6,21 +6,22 @@
   <meta name="description" content="PitSpot Auto - Premium pre-owned vehicles with exceptional service">
   <title>PitSpot Auto | Premier Vehicles</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <!-- HEADER -->
   <header>
     <div class="logo">
       <img src="assets/logo.png" alt="PitSpot Auto Logo" class="logo-img">
     </div>
 
     <nav id="main-nav">
+      <a href="inventory.html">Inventory</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      
     </nav>
 
     <div class="menu-toggle" id="menu-toggle">
@@ -31,6 +32,7 @@
   </header>
 
   <main>
+    <!-- HERO SECTION -->
     <section id="hero">
       <video autoplay muted loop playsinline id="hero-video">
         <source src="assets/car-showroom.mp4" type="video/mp4">
@@ -48,6 +50,7 @@
         </div>
       </div>
 
+      <!-- Mobile Carousel -->
       <div class="mobile-carousel-container">
         <div class="mobile-carousel">
           <div class="mobile-slide active">
@@ -69,6 +72,107 @@
       </div>
     </section>
 
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+      <div class="stat-box">
+        <span class="stat-icon">🚗</span>
+        <span class="stat-number">200+</span>
+        <span class="stat-label">Premium Vehicles</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-icon">😊</span>
+        <span class="stat-number">1500+</span>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-icon">🏆</span>
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Satisfaction Rate</span>
+      </div>
+    </section>
+
+    <!-- FEATURED VEHICLES SECTION -->
+    <section class="featured-vehicles-section">
+      <div class="section-header">
+        <h2>Featured Vehicles</h2>
+        <p>Explore our hand-picked selection of premium vehicles</p>
+      </div>
+      
+      <div class="featured-grid">
+        <div class="featured-card" onclick="window.location.href='inventory.html'">
+          <div class="featured-image">
+            <img src="https://i.ibb.co/Qjn1FM4G/Whats-App-Image-2025-10-18-at-7-23-39-PM-4.jpg" alt="2021 Mercedes GLE">
+            <span class="featured-badge">Featured</span>
+          </div>
+          <div class="featured-card-content">
+            <h3>2021 Mercedes Benz GLE</h3>
+            <p class="featured-subtitle">White • Automatic • 550 mi</p>
+            <div class="featured-card-specs">
+              <span>🚗 SUV</span>
+              <span>⛽ Fuel</span>
+              <span>⚙️ Automatic</span>
+            </div>
+            <div class="featured-card-footer">
+              <div class="featured-card-price">₦100,000,000</div>
+              <button class="view-details-btn">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-card" onclick="window.location.href='inventory.html'">
+          <div class="featured-image">
+            <img src="https://i.ibb.co/39zz7kfS/Whats-App-Image-2025-10-18-at-7-34-50-PM.jpg" alt="2013 Toyota Camry">
+            <span class="featured-badge new">New</span>
+          </div>
+          <div class="featured-card-content">
+            <h3>2013 Toyota Camry Se</h3>
+            <p class="featured-subtitle">White • Automatic • 550 mi</p>
+            <div class="featured-card-specs">
+              <span>🚗 Sedan</span>
+              <span>⛽ Fuel</span>
+              <span>⚙️ Automatic</span>
+            </div>
+            <div class="featured-card-footer">
+              <div class="featured-card-price">₦12,000,000</div>
+              <button class="view-details-btn">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-card" onclick="window.location.href='inventory.html'">
+          <div class="featured-image">
+            <img src="https://i.ibb.co/9HrCmgMQ/Whats-App-Image-2025-10-18-at-7-25-01-PM.jpg" alt="2013 Toyota Camry Black">
+            <span class="featured-badge certified">Certified</span>
+          </div>
+          <div class="featured-card-content">
+            <h3>2013 Toyota Camry Se</h3>
+            <p class="featured-subtitle">Black • Automatic • 550 mi</p>
+            <div class="featured-card-specs">
+              <span>🚗 Sedan</span>
+              <span>⛽ Fuel</span>
+              <span>⚙️ Automatic</span>
+            </div>
+            <div class="featured-card-footer">
+              <div class="featured-card-price">₦12,000,000</div>
+              <button class="view-details-btn">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="view-all-container">
+        <button class="view-all-btn" onclick="window.location.href='inventory.html'">
+          View All Vehicles →
+        </button>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
     <section class="features-section">
       <div class="feature-card">
         <div class="feature-icon">🚗</div>
@@ -94,8 +198,123 @@
         <p>Professional team dedicated to finding your ideal vehicle and financing</p>
       </div>
     </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+      <div class="section-header">
+        <h2>What Our Clients Say</h2>
+        <p>Real experiences from satisfied customers</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Excellent service! The team at PitSpot Auto helped me find the perfect car within my budget. The entire process was smooth and professional."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div class="testimonial-author-info">
+              <h4>Adewale Johnson</h4>
+              <p>Lagos, Nigeria</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I've bought two cars from PitSpot Auto and both experiences were fantastic. Their vehicles are top quality and fairly priced. Highly recommend!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div class="testimonial-author-info">
+              <h4>Chioma Okafor</h4>
+              <p>Ibadan, Nigeria</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Professional, transparent, and trustworthy. PitSpot Auto made my car buying experience stress-free. The warranty and after-sales service are excellent."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">O</div>
+            <div class="testimonial-author-info">
+              <h4>Oluwaseun Balogun</h4>
+              <p>Abuja, Nigeria</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose-section">
+      <div class="why-choose-content">
+        <div class="why-choose-text">
+          <h2>Why Choose PitSpot Auto?</h2>
+          <p class="why-choose-intro">We're not just selling cars – we're building lasting relationships with our customers.</p>
+          
+          <div class="why-choose-list">
+            <div class="why-item">
+              <span class="why-icon">✓</span>
+              <div>
+                <h4>Certified Quality</h4>
+                <p>All vehicles undergo rigorous 150-point inspection</p>
+              </div>
+            </div>
+            
+            <div class="why-item">
+              <span class="why-icon">✓</span>
+              <div>
+                <h4>Transparent Pricing</h4>
+                <p>No hidden fees, what you see is what you pay</p>
+              </div>
+            </div>
+            
+            <div class="why-item">
+              <span class="why-icon">✓</span>
+              <div>
+                <h4>Flexible Financing</h4>
+                <p>Multiple payment options to suit your needs</p>
+              </div>
+            </div>
+            
+            <div class="why-item">
+              <span class="why-icon">✓</span>
+              <div>
+                <h4>After-Sales Support</h4>
+                <p>Comprehensive warranty and maintenance packages</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="learn-more-btn" onclick="window.location.href='about.html'">
+            Learn More About Us
+          </button>
+        </div>
+
+        <div class="why-choose-image">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800" alt="Professional Car Dealership">
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>Ready to Find Your Dream Car?</h2>
+        <p>Browse our extensive inventory and drive home in your perfect vehicle today</p>
+        <div class="cta-buttons">
+          <button class="cta-btn primary" onclick="window.location.href='inventory.html'">
+            Browse Inventory
+          </button>
+          <button class="cta-btn secondary" onclick="window.location.href='contact.html'">
+            Contact Us
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-section">
@@ -112,7 +331,7 @@
 
       <div class="footer-section">
         <h3>Contact</h3>
-        <p>📍 pitspot autos,Akala Express,elebu road, Ibadan</p>
+        <p>📍 pitspot autos, Akala Express, elebu road, Ibadan</p>
         <p>📞 +2348020000298</p>
         <p>✉️ info@pitspotautos.com</p>
       </div>
@@ -121,7 +340,7 @@
         <h3>Hours</h3>
         <p>Monday - Friday: 9AM - 7PM</p>
         <p>Saturday: 9AM - 2PM</p>
-        <p>Sunday: closed</p>
+        <p>Sunday: Closed</p>
       </div>
     </div>
 
@@ -130,97 +349,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script> 
-  
-  <script>
-    // ===== MOBILE CAROUSEL ===== (Kept for the home page hero)
-    // ... (Your existing mobile carousel and menu toggle code) ...
-    const mobileSlides = document.querySelectorAll('.mobile-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    let currentMobileSlide = 0;
-    let mobileCarouselInterval;
-
-    function showMobileSlide(index) {
-      mobileSlides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      indicators.forEach((indicator, i) => {
-        indicator.classList.toggle('active', i === index);
-      });
-    }
-
-    function startMobileCarousel() {
-      mobileCarouselInterval = setInterval(() => {
-        currentMobileSlide = (currentMobileSlide + 1) % mobileSlides.length;
-        showMobileSlide(currentMobileSlide);
-      }, 3000);
-    }
-
-    function stopMobileCarousel() {
-      clearInterval(mobileCarouselInterval);
-    }
-
-    if (mobileSlides.length > 0) {
-      startMobileCarousel();
-
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-          currentMobileSlide = index;
-          showMobileSlide(currentMobileSlide);
-          stopMobileCarousel();
-          startMobileCarousel();
-        });
-      });
-
-      let touchStartX = 0;
-      let touchEndX = 0;
-      const mobileCarousel = document.querySelector('.mobile-carousel');
-
-      if (mobileCarousel) {
-        mobileCarousel.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        });
-
-        mobileCarousel.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          handleSwipe();
-        });
-
-        function handleSwipe() {
-          const swipeThreshold = 50;
-          
-          if (touchEndX < touchStartX - swipeThreshold) {
-            currentMobileSlide = (currentMobileSlide + 1) % mobileSlides.length;
-            showMobileSlide(currentMobileSlide);
-            stopMobileCarousel();
-            startMobileCarousel();
-          } else if (touchEndX > touchStartX + swipeThreshold) {
-            currentMobileSlide = (currentMobileSlide - 1 + mobileSlides.length) % mobileSlides.length;
-            showMobileSlide(currentMobileSlide);
-            stopMobileCarousel();
-            startMobileCarousel();
-          }
-        }
-      }
-    }
-
-    // ===== MOBILE MENU TOGGLE =====
-    const menuToggle = document.getElementById('menu-toggle');
-    const mainNav = document.getElementById('main-nav');
-
-    if (menuToggle && mainNav) {
-      menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        mainNav.classList.toggle('active');
-      });
-
-      document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-          menuToggle.classList.remove('active');
-          mainNav.classList.remove('active');
-        });
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
