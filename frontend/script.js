@@ -763,6 +763,7 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
+
 // ===== CONSOLE MESSAGE =====
 console.log('%c🚗 Welcome to PitSpot Auto! 🚗', 'color: #e63946; font-size: 20px; font-weight: bold;');
 console.log('%cWe\'re glad you\'re here. Find your dream car today!', 'color: #666; font-size: 14px;');
