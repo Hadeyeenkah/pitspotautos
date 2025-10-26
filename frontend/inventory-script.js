@@ -29,7 +29,7 @@ let state = {
   itemsPerPage: 9,
   filters: {
     search: '',
-    priceMax: 100000000,
+    priceMax: Infinity, // Changed from 100000000 to Infinity
     makes: [],
     bodyTypes: [],
     transmissions: [],
@@ -277,7 +277,8 @@ function getFilteredVehicles() {
       if (!searchString.includes(searchTerm)) return false;
     }
 
-    if (vehicle.price > state.filters.priceMax) return false;
+    // Only filter by price if priceMax is not Infinity
+    if (state.filters.priceMax !== Infinity && vehicle.price > state.filters.priceMax) return false;
 
     if (state.filters.makes.length > 0) {
       if (!state.filters.makes.includes(vehicle.make.toLowerCase())) return false;
@@ -574,7 +575,10 @@ function scheduleTestDrive(id) {
 // ========================================
 function applyFilters() {
   state.filters.search = document.getElementById('search-input').value.trim();
-  state.filters.priceMax = parseInt(document.getElementById('price-slider').value);
+  
+  // Remove price slider functionality - all prices allowed
+  state.filters.priceMax = Infinity;
+  
   state.filters.makes = Array.from(document.querySelectorAll('input[name="make"]:checked')).map(cb => cb.value);
   state.filters.bodyTypes = Array.from(document.querySelectorAll('input[name="body"]:checked')).map(cb => cb.value);
   state.filters.transmissions = Array.from(document.querySelectorAll('input[name="transmission"]:checked')).map(cb => cb.value);
@@ -586,13 +590,11 @@ function applyFilters() {
 
 function clearFilters() {
   document.getElementById('search-input').value = '';
-  document.getElementById('price-slider').value = 100000000;
-  document.getElementById('max-price-display').value = formatPrice(100000000);
   document.querySelectorAll('input[type="checkbox"]').forEach(input => input.checked = false);
 
   state.filters = {
     search: '',
-    priceMax: 100000000,
+    priceMax: Infinity, // Changed from 100000000
     makes: [],
     bodyTypes: [],
     transmissions: [],
@@ -1491,14 +1493,6 @@ function init() {
   // Load vehicles from Firebase
   loadVehiclesFromFirebase();
 
-  // Price slider
-  const priceSlider = document.getElementById('price-slider');
-  if (priceSlider) {
-    priceSlider.addEventListener('input', (e) => {
-      document.getElementById('max-price-display').value = formatPrice(parseInt(e.target.value));
-    });
-  }
-
   // Search
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
@@ -1586,7 +1580,7 @@ function init() {
     });
   }
 
-  // Admin toggle - FIXED
+  // Admin toggle
   const adminToggle = document.getElementById('admin-toggle');
   if (adminToggle) {
     console.log('✅ Admin toggle button found');
@@ -1611,6 +1605,7 @@ function init() {
   console.log('✅ PitSpot Auto Inventory System initialized successfully!');
   console.log('📊 Firebase Storage enabled for image uploads');
   console.log('🔐 Admin Mode: Click "Admin" button and enter password');
+  console.log('💰 Price Filter: ALL prices now supported (no upper limit)');
 }
 
 // Start the app when DOM is ready
