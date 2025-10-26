@@ -403,6 +403,7 @@ nav a:hover::after {
   gap: 2.5rem;
   max-width: 1400px;
   margin: 0 auto 3rem;
+  min-height: 400px;
 }
 
 .featured-card {
@@ -503,8 +504,8 @@ nav a:hover::after {
 }
 
 .featured-card-price {
-  font-size: -10rem;
-  font-weight: 500;
+  font-size: 1.8rem;
+  font-weight: 800;
   color: var(--primary-color);
 }
 
@@ -549,6 +550,32 @@ nav a:hover::after {
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+}
+
+/* Loading State */
+.loading-spinner {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  min-height: 400px;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e63946;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* FEATURES SECTION */
@@ -1030,6 +1057,11 @@ footer {
     padding: 0 1rem;
   }
 
+  .hero-text {
+    left: 20px;
+    top: 80px;
+  }
+
   .hero-text h1 {
     font-size: 2rem;
   }
@@ -1101,7 +1133,7 @@ footer {
 
   .why-choose-content {
     grid-template-columns: 1fr;
-    gap: 50rem;
+    gap: 2rem;
   }
 
   .why-choose-image img {
@@ -1223,7 +1255,7 @@ footer {
 
       <!-- Mobile Carousel -->
       <div class="mobile-carousel-container">
-        <div class="mobile-carousel">
+        <div class="mobile-carousel" id="mobile-carousel">
           <div class="mobile-slide active">
             <img src="assets/car1.png" alt="Featured Vehicle 1">
           </div>
@@ -1235,7 +1267,7 @@ footer {
           </div>
         </div>
         
-        <div class="carousel-indicators">
+        <div class="carousel-indicators" id="carousel-indicators">
           <span class="indicator active" data-slide="0"></span>
           <span class="indicator" data-slide="1"></span>
           <span class="indicator" data-slide="2"></span>
@@ -1274,65 +1306,11 @@ footer {
         <p>Explore our hand-picked selection of premium vehicles</p>
       </div>
       
-      <div class="featured-grid">
-        <div class="featured-card" onclick="window.location.href='inventory.html'">
-          <div class="featured-image">
-            <img src="https://i.ibb.co/Qjn1FM4G/Whats-App-Image-2025-10-18-at-7-23-39-PM-4.jpg" alt="2021 Mercedes GLE">
-            <span class="featured-badge">Featured</span>
-          </div>
-          <div class="featured-card-content">
-            <h5>2021 Mercedes Benz GLE</h5>
-            <p class="featured-subtitle">White • Automatic • 550 mi</p>
-            <div class="featured-card-specs">
-              <span>🚗 SUV</span>
-              <span>⛽ Fuel</span>
-              <span>⚙️ Automatic</span>
-            </div>
-            <div class="featured-card-footer">
-              <div class="featured-card-price">₦100,000,000</div>
-              <button class="view-details-btn">View Details</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="featured-card" onclick="window.location.href='inventory.html'">
-          <div class="featured-image">
-            <img src="https://i.ibb.co/39zz7kfS/Whats-App-Image-2025-10-18-at-7-34-50-PM.jpg" alt="2013 Toyota Camry">
-            <span class="featured-badge new">New</span>
-          </div>
-          <div class="featured-card-content">
-            <h5>2013 Toyota Camry Se</h5>
-            <p class="featured-subtitle">White • Automatic • 550 mi</p>
-            <div class="featured-card-specs">
-              <span>🚗 Sedan</span>
-              <span>⛽ Fuel</span>
-              <span>⚙️ Automatic</span>
-            </div>
-            <div class="featured-card-footer">
-              <div class="featured-card-price">₦12,000,000</div>
-              <button class="view-details-btn">View Details</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="featured-card" onclick="window.location.href='inventory.html'">
-          <div class="featured-image">
-            <img src="https://i.ibb.co/9HrCmgMQ/Whats-App-Image-2025-10-18-at-7-25-01-PM.jpg" alt="2013 Toyota Camry Black">
-            <span class="featured-badge certified">Certified</span>
-          </div>
-          <div class="featured-card-content">
-            <h5>2013 Toyota Camry Se</h5>
-            <p class="featured-subtitle">Black • Automatic • 550 mi</p>
-            <div class="featured-card-specs">
-              <span>🚗 Sedan</span>
-              <span>⛽ Fuel</span>
-              <span>⚙️ Automatic</span>
-            </div>
-            <div class="featured-card-footer">
-              <div class="featured-card-price">₦12,000,000</div>
-              <button class="view-details-btn">View Details</button>
-            </div>
-          </div>
+      <div class="featured-grid" id="featured-grid">
+        <!-- Loading state -->
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p style="font-size: 1.1rem; color: #666; font-weight: 500;">Loading featured vehicles...</p>
         </div>
       </div>
 
@@ -1520,6 +1498,276 @@ footer {
     </div>
   </footer>
 
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+  <!-- Homepage Firebase Integration Script -->
+  <script>
+    // ========================================
+    // FIREBASE CONFIGURATION
+    // ========================================
+    const firebaseConfig = {
+      apiKey: "AIzaSyCNKqFRWURaDERhCtqbsEPFPmqIkstsTv4",
+      authDomain: "pitspotautos1-90191.firebaseapp.com",
+      projectId: "pitspotautos1-90191",
+      storageBucket: "pitspotautos1-90191.firebasestorage.app",
+      messagingSenderId: "898612535281",
+      appId: "1:898612535281:web:9b019541ce0e9b7c11ee50",
+      measurementId: "G-H552DDXBD2"
+    };
+
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    const db = firebase.firestore();
+
+    // ========================================
+    // HELPER FUNCTIONS
+    // ========================================
+    function formatPrice(price) {
+      return '₦' + new Intl.NumberFormat('en-NG').format(price);
+    }
+
+    function formatMileage(miles) {
+      return new Intl.NumberFormat('en-US').format(miles);
+    }
+
+    // ========================================
+    // LOAD FEATURED VEHICLES FROM FIREBASE
+    // ========================================
+    async function loadFeaturedVehicles() {
+      try {
+        console.log('📥 Loading featured vehicles from Firebase...');
+        
+        // Get vehicles with 'featured' badge, limit to 3
+        const snapshot = await db.collection('vehicles')
+          .orderBy('createdAt', 'desc')
+          .limit(10)
+          .get();
+        
+        const vehicles = [];
+        snapshot.forEach(doc => {
+          const vehicleData = { id: doc.id, ...doc.data() };
+          vehicles.push(vehicleData);
+        });
+
+        // Filter featured vehicles
+        let featuredVehicles = vehicles.filter(v => v.badges && v.badges.includes('featured'));
+        
+        // If less than 3 featured, take recent vehicles
+        if (featuredVehicles.length < 3) {
+          featuredVehicles = vehicles.slice(0, 3);
+        } else {
+          featuredVehicles = featuredVehicles.slice(0, 3);
+        }
+
+        if (featuredVehicles.length > 0) {
+          updateFeaturedVehiclesSection(featuredVehicles);
+          updateMobileCarousel(featuredVehicles);
+          console.log(`✅ Loaded ${featuredVehicles.length} featured vehicles`);
+        } else {
+          showNoVehiclesMessage();
+          console.log('⚠️ No vehicles found in database');
+        }
+      } catch (error) {
+        console.error('❌ Error loading featured vehicles:', error);
+        showErrorMessage();
+      }
+    }
+
+    // ========================================
+    // UPDATE FEATURED VEHICLES SECTION
+    // ========================================
+    function updateFeaturedVehiclesSection(vehicles) {
+      const featuredGrid = document.getElementById('featured-grid');
+      if (!featuredGrid) return;
+
+      featuredGrid.innerHTML = vehicles.map(vehicle => {
+        const firstImage = vehicle.images && vehicle.images.length > 0 
+          ? vehicle.images[0] 
+          : 'https://via.placeholder.com/400x300?text=No+Image';
+        
+        const badge = vehicle.badges && vehicle.badges.length > 0 
+          ? vehicle.badges[0] 
+          : 'featured';
+        
+        const badgeClass = badge === 'new' ? 'new' : badge === 'certified' ? 'certified' : '';
+
+        return `
+          <div class="featured-card" onclick="window.location.href='inventory.html'">
+            <div class="featured-image">
+              <img src="${firstImage}" alt="${vehicle.year} ${vehicle.make} ${vehicle.model}" loading="lazy">
+              <span class="featured-badge ${badgeClass}">${badge.charAt(0).toUpperCase() + badge.slice(1)}</span>
+            </div>
+            <div class="featured-card-content">
+              <h3>${vehicle.year} ${vehicle.make} ${vehicle.model}</h3>
+              <p class="featured-subtitle">${vehicle.color} • ${vehicle.transmission} • ${formatMileage(vehicle.mileage)} mi</p>
+              <div class="featured-card-specs">
+                <span>🚗 ${vehicle.bodyType.toUpperCase()}</span>
+                <span>⛽ ${vehicle.fuel}</span>
+                <span>⚙️ ${vehicle.transmission}</span>
+              </div>
+              <div class="featured-card-footer">
+                <div class="featured-card-price">${formatPrice(vehicle.price)}</div>
+                <button class="view-details-btn">View Details</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ========================================
+    // UPDATE MOBILE CAROUSEL
+    // ========================================
+    function updateMobileCarousel(vehicles) {
+      const mobileCarousel = document.getElementById('mobile-carousel');
+      if (!mobileCarousel) return;
+
+      // Update carousel slides
+      mobileCarousel.innerHTML = vehicles.map((vehicle, index) => {
+        const firstImage = vehicle.images && vehicle.images.length > 0 
+          ? vehicle.images[0] 
+          : 'https://via.placeholder.com/400x300?text=No+Image';
+        
+        return `
+          <div class="mobile-slide ${index === 0 ? 'active' : ''}">
+            <img src="${firstImage}" alt="${vehicle.year} ${vehicle.make} ${vehicle.model}">
+          </div>
+        `;
+      }).join('');
+
+      // Update indicators
+      const indicators = document.getElementById('carousel-indicators');
+      if (indicators) {
+        indicators.innerHTML = vehicles.map((_, index) => 
+          `<span class="indicator ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>`
+        ).join('');
+
+        // Re-attach click handlers to new indicators
+        const newIndicators = document.querySelectorAll('.indicator');
+        newIndicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => {
+            showSlide(index);
+          });
+        });
+      }
+    }
+
+    // ========================================
+    // SHOW MESSAGES
+    // ========================================
+    function showNoVehiclesMessage() {
+      const featuredGrid = document.getElementById('featured-grid');
+      featuredGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+          <h3 style="font-size: 2rem; color: #666; margin-bottom: 1rem;">🚗 No Vehicles Yet</h3>
+          <p style="font-size: 1.1rem; color: #999;">Check back soon for our latest inventory!</p>
+        </div>
+      `;
+    }
+
+    function showErrorMessage() {
+      const featuredGrid = document.getElementById('featured-grid');
+      featuredGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+          <h3 style="font-size: 2rem; color: #e63946; margin-bottom: 1rem;">⚠️ Error Loading Vehicles</h3>
+          <p style="font-size: 1.1rem; color: #666; margin-bottom: 1.5rem;">Unable to load vehicles. Please refresh the page.</p>
+          <button onclick="location.reload()" style="background: #e63946; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 700;">Retry</button>
+        </div>
+      `;
+    }
+
+    // ========================================
+    // LOAD VEHICLE STATISTICS
+    // ========================================
+    async function loadVehicleStats() {
+      try {
+        console.log('📊 Loading vehicle statistics...');
+        
+        const snapshot = await db.collection('vehicles').get();
+        const totalVehicles = snapshot.size;
+        
+        // Update stats bar
+        const statBoxes = document.querySelectorAll('.stat-box');
+        if (statBoxes[0] && totalVehicles > 0) {
+          statBoxes[0].querySelector('.stat-number').textContent = `${totalVehicles}+`;
+        }
+        
+        console.log(`✅ Total vehicles in database: ${totalVehicles}`);
+      } catch (error) {
+        console.error('❌ Error loading stats:', error);
+      }
+    }
+
+    // ========================================
+    // CAROUSEL FUNCTIONALITY
+    // ========================================
+    let currentSlide = 0;
+    let carouselInterval;
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.mobile-slide');
+      const indicators = document.querySelectorAll('.indicator');
+      
+      if (slides.length === 0) return;
+      
+      slides.forEach(slide => slide.classList.remove('active'));
+      indicators.forEach(indicator => indicator.classList.remove('active'));
+      
+      currentSlide = (n + slides.length) % slides.length;
+      
+      slides[currentSlide].classList.add('active');
+      if (indicators[currentSlide]) {
+        indicators[currentSlide].classList.add('active');
+      }
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function startCarousel() {
+      // Clear existing interval
+      if (carouselInterval) {
+        clearInterval(carouselInterval);
+      }
+      
+      // Start new interval
+      carouselInterval = setInterval(nextSlide, 4000);
+    }
+
+    // ========================================
+    // INITIALIZE ON PAGE LOAD
+    // ========================================
+    document.addEventListener('DOMContentLoaded', async function() {
+      console.log('🚀 Initializing PitSpot Auto Homepage...');
+      
+      // Wait for Firebase to initialize
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Load featured vehicles and stats
+      await loadFeaturedVehicles();
+      await loadVehicleStats();
+      
+      // Start carousel after vehicles are loaded
+      startCarousel();
+      
+      console.log('✅ Homepage initialized successfully!');
+    });
+
+    // Stop carousel when user leaves page
+    window.addEventListener('beforeunload', () => {
+      if (carouselInterval) {
+        clearInterval(carouselInterval);
+      }
+    });
+  </script>
+
+  <!-- Existing Homepage Scripts -->
   <script>
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
@@ -1549,94 +1797,65 @@ footer {
       }
     });
 
-    // Mobile Carousel
-    const slides = document.querySelectorAll('.mobile-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    let currentSlide = 0;
+    // WhatsApp Click to Chat
+    function initWhatsAppButton() {
+      const whatsappNumber = '+2348020000298';
+      const whatsappButton = document.createElement('a');
+      whatsappButton.href = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=Hello%20PitSpot%20Auto,%20I'm%20interested%20in%20your%20vehicles`;
+      whatsappButton.target = '_blank';
+      whatsappButton.rel = 'noopener noreferrer';
+      whatsappButton.className = 'whatsapp-float';
+      whatsappButton.innerHTML = `
+        <svg viewBox="0 0 32 32" width="32" height="32">
+          <path fill="currentColor" d="M16 0C7.164 0 0 7.163 0 16c0 2.84.744 5.508 2.05 7.82L.052 31.93l8.354-2.066A15.94 15.94 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm8.348 22.641c-.37.986-2.124 1.805-3.093 1.926-.746.092-1.717.165-2.777-.174-.645-.205-1.473-.478-2.528-.935-4.405-1.906-7.284-6.338-7.504-6.629-.22-.291-1.793-2.386-1.793-4.551 0-2.165 1.135-3.232 1.538-3.672.403-.44.88-.55 1.174-.55.294 0 .587.003.844.015.27.012.635-.103.993.757.37.875 1.258 3.074 1.368 3.297.11.223.183.484.037.775-.146.291-.22.473-.44.728-.22.255-.463.57-.66.765-.22.219-.448.455-.193.893.255.44 1.135 1.872 2.437 3.033 1.676 1.493 3.087 1.955 3.525 2.178.44.223.696.185.953-.11.256-.294 1.1-1.284 1.393-1.724.294-.44.587-.367.99-.22.403.146 2.565 1.21 3.005 1.43.44.22.733.33.843.513.11.183.11 1.058-.259 2.083z"/>
+        </svg>
+      `;
+      whatsappButton.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #25D366;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        z-index: 998;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        opacity: 0;
+        visibility: hidden;
+      `;
 
-    function showSlide(n) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      indicators.forEach(indicator => indicator.classList.remove('active'));
-      
-      currentSlide = (n + slides.length) % slides.length;
-      
-      slides[currentSlide].classList.add('active');
-      indicators[currentSlide].classList.add('active');
-    }
+      document.body.appendChild(whatsappButton);
 
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
-
-    // Auto-advance carousel
-    setInterval(nextSlide, 4000);
-
-    // Manual control
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        showSlide(index);
+      whatsappButton.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.1)';
+        this.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.6)';
       });
-    });
-    // ===== WHATSAPP CLICK TO CHAT (OPTIONAL) =====
-function initWhatsAppButton() {
-  const whatsappNumber = '+2348020000298'; // Your number
-  const whatsappButton = document.createElement('a');
-  whatsappButton.href = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=Hello%20PitSpot%20Auto,%20I'm%20interested%20in%20your%20vehicles`;
-  whatsappButton.target = '_blank';
-  whatsappButton.rel = 'noopener noreferrer';
-  whatsappButton.className = 'whatsapp-float';
-  whatsappButton.innerHTML = `
-    <svg viewBox="0 0 32 32" width="32" height="32">
-      <path fill="currentColor" d="M16 0C7.164 0 0 7.163 0 16c0 2.84.744 5.508 2.05 7.82L.052 31.93l8.354-2.066A15.94 15.94 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm8.348 22.641c-.37.986-2.124 1.805-3.093 1.926-.746.092-1.717.165-2.777-.174-.645-.205-1.473-.478-2.528-.935-4.405-1.906-7.284-6.338-7.504-6.629-.22-.291-1.793-2.386-1.793-4.551 0-2.165 1.135-3.232 1.538-3.672.403-.44.88-.55 1.174-.55.294 0 .587.003.844.015.27.012.635-.103.993.757.37.875 1.258 3.074 1.368 3.297.11.223.183.484.037.775-.146.291-.22.473-.44.728-.22.255-.463.57-.66.765-.22.219-.448.455-.193.893.255.44 1.135 1.872 2.437 3.033 1.676 1.493 3.087 1.955 3.525 2.178.44.223.696.185.953-.11.256-.294 1.1-1.284 1.393-1.724.294-.44.587-.367.99-.22.403.146 2.565 1.21 3.005 1.43.44.22.733.33.843.513.11.183.11 1.058-.259 2.083z"/>
-    </svg>
-  `;
-  whatsappButton.style.cssText = `
-    position: fixed;
-    bottom: 90px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #25D366;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-    z-index: 998;
-    transition: all 0.3s ease;
-    text-decoration: none;
-  `;
 
-  document.body.appendChild(whatsappButton);
+      whatsappButton.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.4)';
+      });
 
-  whatsappButton.addEventListener('mouseenter', function() {
-    this.style.transform = 'scale(1.1)';
-    this.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.6)';
-  });
-
-  whatsappButton.addEventListener('mouseleave', function() {
-    this.style.transform = 'scale(1)';
-    this.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.4)';
-  });
-
-  // Show WhatsApp button after user scrolls
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-      whatsappButton.style.opacity = '1';
-      whatsappButton.style.visibility = 'visible';
-    } else {
-      whatsappButton.style.opacity = '0';
-      whatsappButton.style.visibility = 'hidden';
+      // Show WhatsApp button after user scrolls
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          whatsappButton.style.opacity = '1';
+          whatsappButton.style.visibility = 'visible';
+        } else {
+          whatsappButton.style.opacity = '0';
+          whatsappButton.style.visibility = 'hidden';
+        }
+      });
     }
-  });
 
-  whatsappButton.style.opacity = '0';
-  whatsappButton.style.visibility = 'hidden';
-}
-
-// Initialize WhatsApp button
-initWhatsAppButton();
+    // Initialize WhatsApp button
+    initWhatsAppButton();
   </script>
 </body>
 </html>
